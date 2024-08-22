@@ -1,5 +1,6 @@
 <script setup>
 import { ref } from 'vue';
+import Modal from './components/Modal.vue';
 
 const data = ref({
   id: '',
@@ -13,16 +14,29 @@ const detalles = ref([
   { id: '2', nombre: 'Ana', apellido: 'Gomez', email: 'ana@example.com' }
 ]);
 
+const showModal = ref(false);
+
 function seleccionarDetalle(detalle) {
   data.value = detalle;
+  showModal.value = true;
+}
+
+function closeModal() {
+  showModal.value = false;
 }
 </script>
 
 <template>
   <div>
-    <router-link to="/detalle">Detalle</router-link>
-    <router-link to="/receptor">Receptor</router-link>
     <router-view :data="data" :detalles="detalles" @seleccionar-detalle="seleccionarDetalle"/>
+    
+    <Modal v-if="showModal" @close="closeModal">
+      <h1>Zona de Detalle</h1>
+      <p><strong>ID:</strong> {{ data.id }}</p>
+      <p><strong>Nombre:</strong> {{ data.nombre }}</p>
+      <p><strong>Apellido:</strong> {{ data.apellido }}</p>
+      <p><strong>Email:</strong> {{ data.email }}</p>
+    </Modal>
   </div>
 </template>
 

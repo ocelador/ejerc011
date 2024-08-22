@@ -16,7 +16,7 @@ export default {
 
 <template>
     <div>
-        <h1>Tabla</h1>
+        <h1>Lista</h1>
         <table>
             <thead>
                 <tr>
