@@ -20,7 +20,6 @@ export default {
 </template>
 
 <style scoped>
-/* Estilos para los datos seleccionados */
 p {
   margin: 5px 0;
 }

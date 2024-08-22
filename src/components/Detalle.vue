@@ -39,7 +39,6 @@ export default {
 </template>
 
 <style scoped>
-/* Estilos para la tabla */
 table {
   width: 100%;
   border-collapse: collapse;

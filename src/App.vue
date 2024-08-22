@@ -1,7 +1,5 @@
 <script setup>
 import { ref } from 'vue';
-import Receptor from './components/Receptor.vue';
-import Detalle from './components/Detalle.vue';
 
 const data = ref({
   id: '',
@@ -21,11 +19,10 @@ function seleccionarDetalle(detalle) {
 </script>
 
 <template>
-  <div class="column" id="Detalle">
-    <Detalle :detalles="detalles" @seleccionar-detalle="seleccionarDetalle"/>
-  </div>
-  <div class="column" id="Receptor">
-    <Receptor :data="data"/>
+  <div>
+    <router-link to="/detalle">Detalle</router-link>
+    <router-link to="/receptor">Receptor</router-link>
+    <router-view :data="data" :detalles="detalles" @seleccionar-detalle="seleccionarDetalle"/>
   </div>
 </template>
 
